@@ -64,6 +64,8 @@ You can simply use `chapas2ud` on the command line to get [Universal Dependencie
 echo 太郎は花子が読んでいる本を次郎に渡した | chapas2ud -I RAW
 ```
 
+Try [notebook](https://colab.research.google.com/github/KoichiYasuoka/spaCy-ChaPAS/blob/master/spacy_chapas.ipynb) for Google Colaboratory.
+
 ## Installation for Linux (Debian)
 
 First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
