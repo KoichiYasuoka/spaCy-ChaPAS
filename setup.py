@@ -6,7 +6,7 @@ URL="https://github.com/KoichiYasuoka/spaCy-ChaPAS"
 
 setuptools.setup(
   name="spacy_chapas",
-  version="0.2.1",
+  version="0.2.2",
   description="ChaPAS-CaboCha-MeCab wrapper for spaCy",
   long_description=long_description,
   long_description_content_type="text/markdown",
