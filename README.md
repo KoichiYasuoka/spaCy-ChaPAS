@@ -23,7 +23,7 @@ ChaPAS-CaboCha-MeCab wrapper for spaCy
 7 本 本 NOUN 名詞-一般 12 obj ホン O
 8 を を ADP 助詞-格助詞-一般 7 case ヲ O
 9 次 次 NOUN 名詞-一般 10 compound ツギ O
-10 郎 郎 NOUN 名詞-一般 12 iobj ロウ O
+10 郎 郎 NOUN 名詞-一般 12 obl ロウ O
 11 に に ADP 助詞-格助詞-一般 10 case ニ O
 12 渡し 渡す VERB 動詞-自立 12 ROOT ワタシ O
 13 た た AUX 助動詞 12 aux タ O
@@ -39,7 +39,7 @@ ChaPAS-CaboCha-MeCab wrapper for spaCy
 本   NOUN  ═╗═══════╝<╗ ║ obj(目的語)
 を   ADP   <╝         ║ ║ case(格表示)
 次   NOUN  <╗         ║ ║ compound(複合)
-郎   NOUN  ═╝═╗<╗     ║ ║ iobj(間接目的語)
+郎   NOUN  ═╝═╗<╗     ║ ║ obl(斜格補語)
 に   ADP   <══╝ ║     ║ ║ case(格表示)
 渡し VERB  ═╗═══╝═════╝═╝ ROOT(親)
 た   AUX   <╝             aux(動詞補助成分)
@@ -121,7 +121,7 @@ First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
 
 ```sh
 sudo yum update
-sudo yum install python3-pip python3-devel gcc-c++ make curl bzip2 java epel-release
+sudo yum install python3-pip python3-devel gcc-c++ make curl bzip2 java-1.8.0-openjdk-headless epel-release
 sudo rpm -ivh https://packages.groonga.org/centos/latest/groonga-release-latest.noarch.rpm
 sudo yum install mecab mecab-devel mecab-ipadic
 cd /tmp
