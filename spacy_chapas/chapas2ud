@@ -20,6 +20,7 @@ BEGIN{
   if($0~/^\* [0-9]+ /){
     b=$2;
     bfrom[b]=substr($3,1,length($3)-1);
+    bpara[b]=substr($3,length($3));
     bhead[b]=substr($4,1,index($4,"/")-1)+n+1;
     id[b]=ga[b]=ni[b]=o[b]=-1;
   }
@@ -164,7 +165,9 @@ BEGIN{
               x=-1;
           }
           if(x==-1){
-            if(upos[i]~/^(VERB|ADJ)$/){
+            if(bpara[chunk[i]]=="P")
+              deprel[i]="conj";
+            else if(upos[i]~/^(VERB|ADJ)$/){
               if(upos[head[i]]~/^(VERB|ADJ)$/)
                 deprel[i]="advcl";
               else
@@ -208,6 +211,19 @@ BEGIN{
           if(upos[i]=="PART")
             deprel[i]="mark";
         }
+      }
+    }
+    for(i=1;i<=n;i++){
+      while(deprel[i]=="conj"){
+        j=head[i];
+        if(i-j>0)
+          break;
+        head[i]=head[j];
+        deprel[i]=deprel[j];
+        head[j]=i;
+        deprel[j]="conj";
+        if(deps[j]=="_"&&deprel[i]!~/^(conj|root)$/)
+          deps[j]=sprintf("%d:%s",head[i],deprel[i]);
       }
     }
     for(i=1;i<=n;i++){
