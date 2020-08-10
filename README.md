@@ -141,6 +141,6 @@ Make sure to get `python37-devel` `python37-pip` `python37-cython` `python37-num
 
 ```sh
 pip3.7 install git+https://github.com/KoichiYasuoka/chapas-cygwin64
-pip3.7 install spacy_syncha --no-build-isolation
+pip3.7 install spacy_chapas --no-build-isolation
 ```
 
