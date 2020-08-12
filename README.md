@@ -68,7 +68,7 @@ Try [notebook](https://colab.research.google.com/github/KoichiYasuoka/spaCy-ChaP
 
 ## Installation for Linux (Debian)
 
-First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages:
+First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages (including oldstable `openjdk-8-jre-headless`):
 
 ```sh
 sudo apt update
