@@ -220,10 +220,10 @@ BEGIN{
           break;
         head[i]=head[j];
         deprel[i]=deprel[j];
+        if(deps[i]=="_")
+          deps[i]=deps[j];
         head[j]=i;
         deprel[j]="conj";
-        if(deps[j]=="_"&&deprel[i]!~/^(conj|root)$/)
-          deps[j]=sprintf("%d:%s",head[i],deprel[i]);
       }
     }
     for(i=1;i<=n;i++){
@@ -252,8 +252,12 @@ BEGIN{
       }
     }
     for(i=1;i<=n;i++){
-      if(deps[i]=="_")
-        deps[i]=sprintf("%d:%s",head[i],deprel[i])
+      if(deps[i]=="_"){
+        if(deprel[i]=="conj")
+          deps[i]=sprintf("%d:conj|%s",head[i],deps[head[i]]);
+        else
+          deps[i]=sprintf("%d:%s",head[i],deprel[i]);
+      }
       printf("%d\t%s\t%s\t%s\t%s\t%s\t%d\t%s\t%s\t%s\n",i,form[i],lemma[i],upos[i],xpos[i],feats[i],head[i],deprel[i],deps[i],misc[i]);
     }
     printf("\n");
