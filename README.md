@@ -64,8 +64,6 @@ You can simply use `chapas2ud` on the command line to get [Universal Dependencie
 echo 太郎は花子が読んでいる本を次郎に渡した | chapas2ud -I RAW
 ```
 
-Try [notebook](https://colab.research.google.com/github/KoichiYasuoka/spaCy-ChaPAS/blob/master/spacy_chapas.ipynb) for Google Colaboratory.
-
 ## Installation for Linux (Debian)
 
 First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages (including oldstable `openjdk-8-jre-headless`):
@@ -143,6 +141,10 @@ Make sure to get `python37-devel` `python37-pip` `python37-cython` `python37-num
 pip3.7 install git+https://github.com/KoichiYasuoka/chapas-cygwin64
 pip3.7 install spacy_chapas --no-build-isolation
 ```
+
+## Installation for Google Colaboratory
+
+Try [notebook](https://colab.research.google.com/github/KoichiYasuoka/spaCy-ChaPAS/blob/master/spacy_chapas.ipynb).
 
 ## References
 
