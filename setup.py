@@ -6,7 +6,7 @@ URL="https://github.com/KoichiYasuoka/spaCy-ChaPAS"
 
 setuptools.setup(
   name="spacy_chapas",
-  version="0.4.5",
+  version="0.4.6",
   description="ChaPAS-CaboCha-MeCab wrapper for spaCy",
   long_description=long_description,
   long_description_content_type="text/markdown",
@@ -16,7 +16,7 @@ setuptools.setup(
   license="MIT",
   keywords="spacy nlp",
   packages=setuptools.find_packages(),
-  install_requires=["spacy>=2.2.2","deplacy>=1.5.9"],
+  install_requires=["spacy>=2.2.2","deplacy>=1.7.0"],
   python_requires=">=3.6",
   package_data={"spacy_chapas":["./chapas2ud","./unidic2ipadic"]},
   data_files=[("bin",["spacy_chapas/chapas2ud"])],
