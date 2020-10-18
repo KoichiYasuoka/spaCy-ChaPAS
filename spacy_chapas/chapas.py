@@ -43,6 +43,13 @@ class ChaPASTokenizer(object):
       d={ "gendai":"dic1", "spoken":"dic2", "qkana":"dic3", "kindai":"dic4", "kinsei":"dic5", "kyogen":"dic6", "wakan":"dic7", "wabun":"dic8", "manyo":"dic9" }
       self.dictkey=d[UniDic]
       self.model=self.ChamameWeb2ChaPASUD
+      try:
+        import unidic2ud
+        if os.path.isdir(os.path.join(unidic2ud.DOWNLOAD_DIR,UniDic)):
+          self.mecab=unidic2ud.load(UniDic,None).mecab
+          self.model=self.UniDic2ChaPASUD
+      except:
+        pass
     else:
       self.model=lambda s:subprocess.check_output([CHAPAS2UD,"-I","RAW"],input=s.encode("utf-8")).decode("utf-8")
     self.vocab=vocab
@@ -142,6 +149,12 @@ class ChaPASTokenizer(object):
       p=(w[5]+"-*-*-*-*").split("-")
       m+=w[2]+"\t"+",".join([p[0],p[1],p[2],p[3],"*" if w[6]=="" else w[6],"*" if w[7]=="" else w[7],w[4],w[3],w[2],w[8],w[9]])+"\n"
     m+="EOS\n"
+    t=subprocess.check_output(["awk","-f",UNIDIC2IPADIC],input=m.encode("utf-8"))
+    u=subprocess.check_output(["cabocha","-f","1","-n","1","-I","1"],input=t)
+    return subprocess.check_output([CHAPAS2UD],input=u).decode("utf-8")
+  def UniDic2ChaPASUD(self,text):
+    import subprocess
+    m=self.mecab(text)
     t=subprocess.check_output(["awk","-f",UNIDIC2IPADIC],input=m.encode("utf-8"))
     u=subprocess.check_output(["cabocha","-f","1","-n","1","-I","1"],input=t)
     return subprocess.check_output([CHAPAS2UD],input=u).decode("utf-8")
