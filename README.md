@@ -163,7 +163,7 @@ Result of [舞姬-Benchmark](https://colab.research.google.com/github/KoichiYasu
 |舞姬-Benchmark | LAS |MLAS |BLEX |
 |---------------|-----|-----|-----|
 |UniDic="kindai"|79.25|59.26|62.96|
-|UniDic="qkana" |77.36|59.16|62.96|
+|UniDic="qkana" |77.36|59.26|62.96|
 |UniDic="kinsei"|70.37|53.57|53.57|
 
 ## References
