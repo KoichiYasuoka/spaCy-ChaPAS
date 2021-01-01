@@ -158,13 +158,19 @@ Try [notebook](https://colab.research.google.com/github/KoichiYasuoka/spaCy-ChaP
 
 ## Benchmarks
 
-Results of [舞姬/荒野より-Benchmarks](https://colab.research.google.com/github/KoichiYasuoka/spaCy-ChaPAS/blob/master/benchmark.ipynb)
+Results of [舞姬/雪國/荒野より-Benchmarks](https://colab.research.google.com/github/KoichiYasuoka/spaCy-ChaPAS/blob/master/benchmark.ipynb)
 
 |[舞姬](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/maihime-benchmark.tar.gz)|LAS|MLAS|BLEX|
 |---------------|-----|-----|-----|
 |UniDic="kindai"|79.25|59.26|62.96|
 |UniDic="qkana" |77.36|59.26|62.96|
 |UniDic="kinsei"|70.37|53.57|53.57|
+
+|[雪國](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/yukiguni-benchmark.tar.gz)|LAS|MLAS|BLEX|
+|---------------|-----|-----|-----|
+|UniDic="kinsei"|89.29|85.71|77.55|
+|UniDic="qkana" |87.50|81.63|77.55|
+|UniDic="kindai"|83.19|85.71|77.55|
 
 |[荒野より](https://github.com/KoichiYasuoka/UniDic2UD/blob/master/benchmark/koyayori-benchmark.tar.gz)|LAS|MLAS|BLEX|
 |---------------|-----|-----|-----|
