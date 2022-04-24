@@ -81,6 +81,7 @@ First, install [MeCab](https://taku910.github.io/mecab/) and necessary packages 
 ```sh
 sudo apt update
 sudo apt install mecab libmecab-dev mecab-ipadic-utf8 python3-pip python3-dev g++ make curl openjdk-8-jre-headless
+pip3 install gdown --user
 cd /tmp
 curl -L 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ' | tar xzf -
 cd CRF++-0.58
@@ -92,8 +93,8 @@ Second, install [CaboCha](https://taku910.github.io/cabocha/):
 
 ```sh
 cd /tmp
-curl -sc cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU' > /dev/null
-curl -Lb cabocha.cookie 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU&confirm='`tr -d '\015' < cabocha.cookie | awk '/_warning_/{print $NF}'` | tar xjf -
+gdown 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7SDd1Q1dUQkZQaUU'
+tar xjf cabocha-0.69.tar.bz2
 cd cabocha-0.69
 ./configure --prefix=/usr --libdir=`mecab-config --libs-only-L` --with-charset=UTF8
 make && sudo make install
@@ -103,8 +104,8 @@ Third, install [ChaPAS](https://sites.google.com/site/yotarow/chapas):
 
 ```sh
 cd /tmp
-curl -sc chapas.cookie 'https://drive.google.com/uc?export=download&id=0BwG_CvJHq43fNDlqSkVSREkzaEk' > /dev/null
-curl -Lb chapas.cookie 'https://drive.google.com/uc?export=download&id=0BwG_CvJHq43fNDlqSkVSREkzaEk&confirm='`tr -d '\015' < chapas.cookie | awk '/_warning_/{print $NF}'` | tar xzf -
+gdown 'https://drive.google.com/uc?export=download&id=0BwG_CvJHq43fNDlqSkVSREkzaEk'
+tar xzf chapas-0.742.tar.gz
 sudo mkdir -p /usr/local/bin
 sudo mv chapas-0.742 /usr/local/chapas
 ( echo '#! /bin/sh' ; echo exec `ls -1 /usr/lib/jvm/j*-1.8.*/bin/java | tail -1` -Xmx1g -jar /usr/local/chapas/chapas.jar '"$@"' ) > chapas
@@ -134,6 +135,7 @@ sudo yum update
 sudo yum install python3-pip python3-devel gcc-c++ make curl bzip2 java-1.8.0-openjdk-headless epel-release
 sudo rpm -ivh https://packages.groonga.org/centos/latest/groonga-release-latest.noarch.rpm
 sudo yum install mecab mecab-devel mecab-ipadic
+pip3 install gdown --user
 cd /tmp
 curl -L 'https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7QVR6VXJ5dWExSTQ' | tar xzf -
 cd CRF++-0.58
